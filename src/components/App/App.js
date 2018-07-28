@@ -4,6 +4,7 @@ import { firebaseApp } from "../../firebase";
 import "./App.css";
 import AddTask from "../AddTask/AddTask";
 import TaskList from "../TaskList/TaskList";
+import CompleteTaskList from "../TaskList/CompleteTaskList";
 
 class App extends Component {
   logout() {
@@ -18,6 +19,9 @@ class App extends Component {
         <hr />
         <h4>Tasks list</h4>
         <TaskList />
+        <hr />
+        <h4>Complete Tasks</h4>
+        <CompleteTaskList />
         <hr />
         <button className="btn btn-danger" onClick={() => this.logout()}>
           Logout

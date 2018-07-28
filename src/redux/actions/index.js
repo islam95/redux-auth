@@ -1,4 +1,4 @@
-import { LOGED_IN, SET_TASKS } from "../types";
+import { LOGED_IN, SET_TASKS, SET_COMPLETED_TASKS } from "../types";
 
 export const logUser = email => {
   const action = {
@@ -12,5 +12,12 @@ export const setTasks = tasks => {
   return {
     type: SET_TASKS,
     tasks
+  };
+};
+
+export const setCompletedTasks = completedTasks => {
+  return {
+    type: SET_COMPLETED_TASKS,
+    completedTasks
   };
 };

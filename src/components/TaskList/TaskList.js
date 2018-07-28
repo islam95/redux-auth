@@ -10,7 +10,8 @@ class TaskList extends Component {
       let tasks = [];
       snap.forEach(task => {
         const { email, title } = task.val();
-        tasks.push({ email, title });
+        const serverKey = task.key;
+        tasks.push({ email, title, serverKey });
       });
       this.props.setTasks(tasks);
     });

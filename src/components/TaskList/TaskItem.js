@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { completeTaskRef } from "../../firebase";
+import { completeTaskRef, taskRef } from "../../firebase";
 
 class TaskItem extends Component {
   completeTask() {
     const { email } = this.props.user;
-    const { title } = this.props.task;
+    const { title, serverKey } = this.props.task;
+    taskRef.child(serverKey).remove();
     completeTaskRef.push({ email, title });
   }
 
