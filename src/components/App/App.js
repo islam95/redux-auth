@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { firebaseApp } from "../../firebase";
 import "./App.css";
+import AddTask from "../AddTask/AddTask";
+import TaskList from "../TaskList/TaskList";
 
 class App extends Component {
   logout() {
@@ -11,7 +13,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        This is an app page. User is logged in.
+        <h3>Add tasks</h3>
+        <AddTask />
+        <hr />
+        <h4>Tasks list</h4>
+        <TaskList />
+        <hr />
         <button className="btn btn-danger" onClick={() => this.logout()}>
           Logout
         </button>
@@ -20,8 +27,11 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {}
-}
+const mapStateToProps = state => {
+  return {};
+};
 
-export default connect(mapStateToProps, null)(App);
+export default connect(
+  mapStateToProps,
+  null
+)(App);

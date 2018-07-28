@@ -1,5 +1,6 @@
 import * as firebase from "firebase/app";
 import "firebase/auth";
+import "firebase/database";
 
 const config = {
   apiKey: "AIzaSyCEwFGi5swZeTSa35BGDlhHmx5Vpuc47fA",
@@ -11,3 +12,9 @@ const config = {
 };
 
 export const firebaseApp = firebase.initializeApp(config);
+
+// Create Database at firebase
+export const taskRef = firebase.database().ref('tasks');
+
+// Create Database at firebase for completed tasks
+export const completeTaskRef = firebase.database().ref('completeTasks');
