@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from 'react-router'
 import { firebaseApp } from "../../firebase";
 
-class Login extends Component {
+class Register extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -14,18 +14,18 @@ class Login extends Component {
     };
   }
 
-  login() {
+  register() {
     const { email, password } = this.state;
     firebaseApp
       .auth()
-      .signInWithEmailAndPassword(email, password)
+      .createUserWithEmailAndPassword(email, password)
       .catch(error => this.setState({ error }));
   }
 
   render() {
     return (
       <div className="form col-sm-3">
-        <h2>Login</h2>
+        <h2>Register</h2>
         <div className="form-group">
           <input
             onChange={e => this.setState({ email: e.target.value })}
@@ -42,20 +42,20 @@ class Login extends Component {
             placeholder="password"
           />
           <button
-            onClick={() => this.login()}
+            onClick={() => this.register()}
             className="btn btn-primary"
             type="button"
           >
-            Login
+            Register
           </button>
         </div>
         {this.state.error.message ? (
           <p className="alert alert-danger">{this.state.error.message}</p>
         ) : null}
-        <div><Link to={"/register"}>Not Registered?</Link></div>
+        <div><Link to={"/login"}>Already a user? Login instead</Link></div>
       </div>
     );
   }
 }
 
-export default Login;
+export default Register;
