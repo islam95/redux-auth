@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from 'react-router'
+import { Link } from "react-router";
 import { firebaseApp } from "../../firebase";
 
 class Register extends Component {
@@ -52,7 +52,9 @@ class Register extends Component {
         {this.state.error.message ? (
           <p className="alert alert-danger">{this.state.error.message}</p>
         ) : null}
-        <div><Link to={"/login"}>Already a user? Login instead</Link></div>
+        <div>
+          <Link to={"/login"}>Already a user? Login instead</Link>
+        </div>
       </div>
     );
   }
